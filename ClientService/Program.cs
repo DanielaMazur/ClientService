@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ClientService.Entities;
 
 namespace ClientService
 {
@@ -6,7 +6,9 @@ namespace ClientService
      {
           static void Main(string[] args)
           {
-               Console.WriteLine("Hello World!");
+               HTTPServer server = new();
+               server.Start();
+               new Client();
           }
      }
 }

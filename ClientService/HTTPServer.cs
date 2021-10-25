@@ -1,4 +1,5 @@
-﻿using ClientService.Services;
+﻿using ClientService.Entities;
+using ClientService.Services;
 using System;
 using System.Linq;
 using System.Net;
@@ -11,12 +12,12 @@ namespace ClientService
           private bool _isRunning;
           private HttpListener _httpListener;
           public const string VERSION = "HTTP/1.1";
-          public const string NAME = "Kitchen";
+          public const string NAME = "ClientService";
 
-          public HTTPServer(int port)
+          public HTTPServer()
           {
                _httpListener = new HttpListener();
-               _httpListener.Prefixes.Add($"http://localhost:{port}/");
+               _httpListener.Prefixes.Add($"{Constants.CLIENT_SERVICE_ADDRESS}/");
           }
 
           public void Start()
